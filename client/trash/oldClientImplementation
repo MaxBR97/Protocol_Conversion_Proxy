@@ -1,0 +1,85 @@
+
+#include <stdlib.h>
+//#include "../include/ConnectionHandler.h"
+//#include "../include/StompProtocol.h"
+//#include "../include/StompFrame.h"
+#include "../include/InputProtocol.h"
+
+using namespace std;
+
+
+void keyboardInput(std::string& keyboardOut, bool& flag, std::mutex& lock){ // function for input thread
+	while (flag) {
+        const short bufsize = 1024;
+        char buf[bufsize];
+		std::strcpy(buf, "");
+		std::cout << "insert input" << std::endl;
+        std::cin.getline(buf, bufsize);
+		std::string line(buf);
+		if(line.length() > 0)
+		{
+		   std::lock_guard<std::mutex> guard(lock);
+		   keyboardOut.clear();
+		   keyboardOut.assign(line);
+		   flag = false;
+		}
+		while(!flag)
+		{
+			std::this_thread::__sleep_for(std::chrono::seconds(0),std::chrono::nanoseconds(1000));
+		}
+	}
+}
+
+int main(int argc, char *argv[]) {
+	 if (argc < 3) {
+        std::cerr << "Usage: " << argv[0] << " insert host & port!" << std::endl << std::endl;
+        return -1;
+    }
+    std::string host = argv[1];
+    short port = atoi(argv[2]);
+    
+    ConnectionHandler connectionHandler(host, port);
+    if (!connectionHandler.connect()) {
+        std::cerr << "Cannot connect to " << host << ":" << port << std::endl;
+        return 1;
+    }
+	bool allowKeyboardInput = true;
+	std::mutex lock; // lock context everytime before accessing userInput.
+	std::string userInput("");
+	std::thread keyboardThread(keyboardInput, std::ref(userInput), std::ref(allowKeyboardInput), std::ref(lock));
+	StompProtocol stomp(connectionHandler); 
+	InputProtocol inputProtocol;
+	std::string inputBufferAsString;
+
+
+    while (!stomp.isShouldTerminate()) {
+		while(allowKeyboardInput)
+	    {
+	      std::this_thread::__sleep_for(std::chrono::seconds(0),std::chrono::nanoseconds(1000));
+	    }
+		char inputBuffer[1024];
+		memset(inputBuffer,0,1024);
+		std::strcpy(inputBuffer,""); // empty inputBuffer
+		std::string reply = "";
+		{
+         std::lock_guard<std::mutex> guard(lock);
+		 userInput.copy(inputBuffer, userInput.length());
+		}
+		inputBufferAsString.clear(); // empty inputBufferAsString
+		std::string inputBufferAsString(inputBuffer);
+		if(inputBufferAsString.compare("") !=0 && inputProtocol.process(inputBufferAsString))
+		{
+           inputProtocol.execute(stomp); 
+		}
+		connectionHandler.getFrameAscii(reply, '\0');
+		std::cout << "reply: \n ------------- \n" << reply <<"\n---------------\n" <<std::endl;
+		allowKeyboardInput = true;
+
+		std::this_thread::__sleep_for(std::chrono::seconds(0),std::chrono::nanoseconds(300));
+		
+    }
+	allowKeyboardInput = false; // might need to be locked
+	keyboardThread.join();
+	std::cout << "Exiting...\n" << std::endl;
+    return 0;
+}

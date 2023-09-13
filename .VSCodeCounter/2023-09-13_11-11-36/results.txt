@@ -1,0 +1,136 @@
+Date : 2023-09-13 11:11:36
+Directory : /home/spl211/Downloads/SPL_hw3
+Total : 74 files,  20848 codes, 4536 comments, 3511 blanks, all 28895 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C++      |         13 |     18,610 |      4,395 |      3,146 |     26,151 |
+| Java     |         53 |      1,965 |        141 |        348 |      2,454 |
+| JSON     |          4 |        221 |          0 |          5 |        226 |
+| XML      |          2 |         30 |          0 |          0 |         30 |
+| Makefile |          1 |         20 |          0 |         11 |         31 |
+| Markdown |          1 |          2 |          0 |          1 |          3 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                            | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                               |         74 |     20,848 |      4,536 |      3,511 |     28,895 |
+| . (Files)                                                                                                       |          1 |          2 |          0 |          1 |          3 |
+| client                                                                                                          |         18 |     18,851 |      4,395 |      3,162 |     26,408 |
+| client (Files)                                                                                                  |          1 |         20 |          0 |         11 |         31 |
+| client/data                                                                                                     |          4 |        221 |          0 |          5 |        226 |
+| client/include                                                                                                  |          6 |     17,505 |      4,347 |      3,019 |     24,871 |
+| client/src                                                                                                      |          6 |      1,065 |         35 |        120 |      1,220 |
+| client/trash                                                                                                    |          1 |         40 |         13 |          7 |         60 |
+| server                                                                                                          |         55 |      1,995 |        141 |        348 |      2,484 |
+| server (Files)                                                                                                  |          2 |         30 |          0 |          0 |         30 |
+| server/src                                                                                                      |         22 |      1,154 |        122 |        284 |      1,560 |
+| server/src/main                                                                                                 |         22 |      1,154 |        122 |        284 |      1,560 |
+| server/src/main/java                                                                                            |         22 |      1,154 |        122 |        284 |      1,560 |
+| server/src/main/java/bgu                                                                                        |         22 |      1,154 |        122 |        284 |      1,560 |
+| server/src/main/java/bgu/spl                                                                                    |         22 |      1,154 |        122 |        284 |      1,560 |
+| server/src/main/java/bgu/spl/net                                                                                |         22 |      1,154 |        122 |        284 |      1,560 |
+| server/src/main/java/bgu/spl/net/api                                                                            |          3 |         19 |         27 |         14 |         60 |
+| server/src/main/java/bgu/spl/net/impl                                                                           |         11 |        685 |         39 |        143 |        867 |
+| server/src/main/java/bgu/spl/net/impl/rci                                                                       |          4 |        124 |          2 |         37 |        163 |
+| server/src/main/java/bgu/spl/net/impl/stomp                                                                     |          7 |        561 |         37 |        106 |        704 |
+| server/src/main/java/bgu/spl/net/srv                                                                            |          8 |        450 |         56 |        127 |        633 |
+| server/target                                                                                                   |         23 |        646 |          3 |          2 |        651 |
+| server/target/classes                                                                                           |         23 |        646 |          3 |          2 |        651 |
+| server/target/classes/bgu                                                                                       |         23 |        646 |          3 |          2 |        651 |
+| server/target/classes/bgu/spl                                                                                   |         23 |        646 |          3 |          2 |        651 |
+| server/target/classes/bgu/spl/net                                                                               |         23 |        646 |          3 |          2 |        651 |
+| server/target/classes/bgu/spl/net/api                                                                           |          3 |         11 |          0 |          1 |         12 |
+| server/target/classes/bgu/spl/net/impl                                                                          |         11 |        359 |          3 |          1 |        363 |
+| server/target/classes/bgu/spl/net/impl/rci                                                                      |          4 |         83 |          0 |          1 |         84 |
+| server/target/classes/bgu/spl/net/impl/stomp                                                                    |          7 |        276 |          3 |          0 |        279 |
+| server/target/classes/bgu/spl/net/srv                                                                           |          9 |        276 |          0 |          0 |        276 |
+| server/trash                                                                                                    |          8 |        165 |         16 |         62 |        243 |
+| server/trash/echo                                                                                               |          3 |         60 |          8 |         22 |         90 |
+| server/trash/newsfeed                                                                                           |          5 |        105 |          8 |         40 |        153 |
++-----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                        | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /home/spl211/Downloads/SPL_hw3/README.md                                                                        | Markdown |          2 |          0 |          1 |          3 |
+| /home/spl211/Downloads/SPL_hw3/client/data/events1.json                                                         | JSON     |         96 |          0 |          2 |         98 |
+| /home/spl211/Downloads/SPL_hw3/client/data/events1_partial.json                                                 | JSON     |         29 |          0 |          0 |         29 |
+| /home/spl211/Downloads/SPL_hw3/client/data/events2.json                                                         | JSON     |         96 |          0 |          2 |         98 |
+| /home/spl211/Downloads/SPL_hw3/client/data/events3.json                                                         | JSON     |          0 |          0 |          1 |          1 |
+| /home/spl211/Downloads/SPL_hw3/client/include/ConnectionHandler.h                                               | C++      |         27 |         14 |         19 |         60 |
+| /home/spl211/Downloads/SPL_hw3/client/include/InputProtocol.h                                                   | C++      |         21 |          0 |          8 |         29 |
+| /home/spl211/Downloads/SPL_hw3/client/include/StompFrame.h                                                      | C++      |         28 |          1 |          5 |         34 |
+| /home/spl211/Downloads/SPL_hw3/client/include/StompProtocol.h                                                   | C++      |         44 |          1 |          4 |         49 |
+| /home/spl211/Downloads/SPL_hw3/client/include/event.h                                                           | C++      |         40 |         10 |          8 |         58 |
+| /home/spl211/Downloads/SPL_hw3/client/include/json.hpp                                                          | C++      |     17,345 |      4,321 |      2,975 |     24,641 |
+| /home/spl211/Downloads/SPL_hw3/client/makefile                                                                  | Makefile |         20 |          0 |         11 |         31 |
+| /home/spl211/Downloads/SPL_hw3/client/src/ConnectionHandler.cpp                                                 | C++      |        110 |          5 |         18 |        133 |
+| /home/spl211/Downloads/SPL_hw3/client/src/InputProtocol.cpp                                                     | C++      |        286 |          1 |         18 |        305 |
+| /home/spl211/Downloads/SPL_hw3/client/src/StompClient.cpp                                                       | C++      |         50 |         15 |          9 |         74 |
+| /home/spl211/Downloads/SPL_hw3/client/src/StompFrame.cpp                                                        | C++      |        179 |          0 |         17 |        196 |
+| /home/spl211/Downloads/SPL_hw3/client/src/StompProtocol.cpp                                                     | C++      |        169 |         11 |         24 |        204 |
+| /home/spl211/Downloads/SPL_hw3/client/src/event.cpp                                                             | C++      |        271 |          3 |         34 |        308 |
+| /home/spl211/Downloads/SPL_hw3/client/trash/echoClient.cpp                                                      | C++      |         40 |         13 |          7 |         60 |
+| /home/spl211/Downloads/SPL_hw3/server/pom.xml                                                                   | XML      |         15 |          0 |          0 |         15 |
+| /home/spl211/Downloads/SPL_hw3/server/server.iml                                                                | XML      |         15 |          0 |          0 |         15 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/api/MessageEncoderDecoder.java                  | Java     |          5 |         13 |          5 |         23 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/api/MessagingProtocol.java                      | Java     |          5 |          8 |          4 |         17 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/api/StompMessagingProtocol.java                 | Java     |          9 |          6 |          5 |         20 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/impl/rci/Command.java                           | Java     |          5 |          0 |          4 |          9 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/impl/rci/ObjectEncoderDecoder.java              | Java     |         63 |          2 |         15 |         80 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/impl/rci/RCIClient.java                         | Java     |         39 |          0 |         10 |         49 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/impl/rci/RemoteCommandInvocationProtocol.java   | Java     |         17 |          0 |          8 |         25 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/impl/stomp/ConnectionsImpl.java                 | Java     |        201 |          1 |         18 |        220 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/impl/stomp/LineMessageEncoderDecoder.java       | Java     |         31 |          4 |         10 |         45 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/impl/stomp/StompCommand.java                    | Java     |         27 |          0 |          8 |         35 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/impl/stomp/StompFrame.java                      | Java     |        119 |         29 |         25 |        173 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/impl/stomp/StompHeader.java                     | Java     |         38 |          2 |         10 |         50 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/impl/stomp/StompMessagingProtocolImpl.java      | Java     |        117 |          1 |         24 |        142 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/impl/stomp/StompServer.java                     | Java     |         28 |          0 |         11 |         39 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/srv/ActorThreadPool.java                        | Java     |         66 |          0 |         13 |         79 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/srv/BaseServer.java                             | Java     |         54 |          0 |         19 |         73 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/srv/BlockingConnectionHandler.java              | Java     |         50 |          0 |         13 |         63 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/srv/ConnectionHandler.java                      | Java     |          6 |         13 |          6 |         25 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/srv/Connections.java                            | Java     |         17 |          0 |         16 |         33 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/srv/NonBlockingConnectionHandler.java           | Java     |        109 |          4 |         19 |        132 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/srv/Reactor.java                                | Java     |        118 |          2 |         31 |        151 |
+| /home/spl211/Downloads/SPL_hw3/server/src/main/java/bgu/spl/net/srv/Server.java                                 | Java     |         30 |         37 |         10 |         77 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/api/MessageEncoderDecoder.class                | Java     |          4 |          0 |          0 |          4 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/api/MessagingProtocol.class                    | Java     |          3 |          0 |          1 |          4 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/api/StompMessagingProtocol.class               | Java     |          4 |          0 |          0 |          4 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/impl/rci/Command.class                         | Java     |          3 |          0 |          1 |          4 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/impl/rci/ObjectEncoderDecoder.class            | Java     |         40 |          0 |          0 |         40 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/impl/rci/RCIClient.class                       | Java     |         27 |          0 |          0 |         27 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/impl/rci/RemoteCommandInvocationProtocol.class | Java     |         13 |          0 |          0 |         13 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/impl/stomp/ConnectionsImpl.class               | Java     |         44 |          0 |          0 |         44 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/impl/stomp/LineMessageEncoderDecoder.class     | Java     |         23 |          3 |          0 |         26 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/impl/stomp/StompCommand.class                  | Java     |         27 |          0 |          0 |         27 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/impl/stomp/StompFrame.class                    | Java     |         50 |          0 |          0 |         50 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/impl/stomp/StompHeader.class                   | Java     |         31 |          0 |          0 |         31 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/impl/stomp/StompMessagingProtocolImpl.class    | Java     |         70 |          0 |          0 |         70 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/impl/stomp/StompServer.class                   | Java     |         31 |          0 |          0 |         31 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/srv/ActorThreadPool.class                      | Java     |         30 |          0 |          0 |         30 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/srv/BaseServer.class                           | Java     |         39 |          0 |          0 |         39 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/srv/BlockingConnectionHandler.class            | Java     |         28 |          0 |          0 |         28 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/srv/ConnectionHandler.class                    | Java     |          5 |          0 |          0 |          5 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/srv/Connections.class                          | Java     |          6 |          0 |          0 |          6 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/srv/NonBlockingConnectionHandler.class         | Java     |         49 |          0 |          0 |         49 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/srv/Reactor.class                              | Java     |         89 |          0 |          0 |         89 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/srv/Server$1.class                             | Java     |         20 |          0 |          0 |         20 |
+| /home/spl211/Downloads/SPL_hw3/server/target/classes/bgu/spl/net/srv/Server.class                               | Java     |         10 |          0 |          0 |         10 |
+| /home/spl211/Downloads/SPL_hw3/server/trash/echo/EchoClient.java                                                | Java     |         29 |          1 |          9 |         39 |
+| /home/spl211/Downloads/SPL_hw3/server/trash/echo/EchoProtocol.java                                              | Java     |         20 |          0 |          7 |         27 |
+| /home/spl211/Downloads/SPL_hw3/server/trash/echo/EchoServer.java                                                | Java     |         11 |          7 |          6 |         24 |
+| /home/spl211/Downloads/SPL_hw3/server/trash/newsfeed/FetchNewsCommand.java                                      | Java     |         13 |          0 |          7 |         20 |
+| /home/spl211/Downloads/SPL_hw3/server/trash/newsfeed/NewsFeed.java                                              | Java     |         22 |          0 |          7 |         29 |
+| /home/spl211/Downloads/SPL_hw3/server/trash/newsfeed/NewsFeedClientMain.java                                    | Java     |         40 |          1 |         14 |         55 |
+| /home/spl211/Downloads/SPL_hw3/server/trash/newsfeed/NewsFeedServerMain.java                                    | Java     |         14 |          7 |          6 |         27 |
+| /home/spl211/Downloads/SPL_hw3/server/trash/newsfeed/PublishNewsCommand.java                                    | Java     |         16 |          0 |          6 |         22 |
+| Total                                                                                                           |          |     20,848 |      4,536 |      3,511 |     28,895 |
++-----------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

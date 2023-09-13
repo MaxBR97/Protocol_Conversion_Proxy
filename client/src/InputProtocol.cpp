@@ -14,7 +14,7 @@ bool InputProtocol::process(std::string message)
     
     if( /*word == NULL ||*/ !InputProtocol::setCommand(word))
      {
-        std::cout << " invalid command" << message <<" " << std::endl;
+        std::cout << " invalid command " << message <<" " << std::endl;
         return false;
      }
     

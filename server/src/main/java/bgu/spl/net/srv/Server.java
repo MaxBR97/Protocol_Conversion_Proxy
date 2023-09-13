@@ -73,5 +73,4 @@ public interface Server<T> extends Closeable {
             Supplier<MessageEncoderDecoder<T>> encdecFactory) {
         return new Reactor<T>(nthreads, port,connections, stompProtocol, encdecFactory);
     }
-
 }

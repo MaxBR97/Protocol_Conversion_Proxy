@@ -8,6 +8,7 @@ import bgu.spl.net.srv.Server;
 public class StompServer {
 
     public static void main(String[] args) {
+    
 
         if(args.length == 2){
             int port = Integer.parseInt(args[0]);
@@ -27,6 +28,9 @@ public class StompServer {
             }
 
             System.out.println("program finished");
+        }
+        else {
+            System.out.println("No arguments found! Please enter port and tpc/reactor");
         }
             
 

@@ -3,3 +3,4 @@ client/trash
 summaryFile
 server/target
 client/bin
+.VSCodeCounter

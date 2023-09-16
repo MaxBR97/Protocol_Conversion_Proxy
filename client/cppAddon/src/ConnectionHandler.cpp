@@ -1,10 +1,10 @@
 #include "../include/ConnectionHandler.h"
 
 using boost::asio::ip::tcp;
-
 using std::cin;
 using std::cout;
 using std::cerr;
+using std::exception;
 using std::endl;
 using std::string;
 

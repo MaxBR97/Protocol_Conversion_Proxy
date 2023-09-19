@@ -2,12 +2,14 @@ cmd_Release/obj.target/client/cppAddon/src/StompProtocol.o := g++ -o Release/obj
 Release/obj.target/client/cppAddon/src/StompProtocol.o: \
  ../cppAddon/src/StompProtocol.cpp \
  ../cppAddon/src/../include/ConnectionHandler.h \
+ ../cppAddon/src/../include/../src/IOObserver.cpp \
  ../cppAddon/src/../include/StompProtocol.h \
  ../cppAddon/src/../include/../include/event.h \
  ../cppAddon/src/../include/../include/StompFrame.h \
  ../cppAddon/src/../include/StompFrame.h
 ../cppAddon/src/StompProtocol.cpp:
 ../cppAddon/src/../include/ConnectionHandler.h:
+../cppAddon/src/../include/../src/IOObserver.cpp:
 ../cppAddon/src/../include/StompProtocol.h:
 ../cppAddon/src/../include/../include/event.h:
 ../cppAddon/src/../include/../include/StompFrame.h:

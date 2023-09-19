@@ -4,6 +4,7 @@
       "target_name": "client",
       "sources": [
         "cppAddon/src/client.cc",
+        "cppAddon/src/IOObserver",
         "cppAddon/src/ConnectionHandler.cpp",
         "cppAddon/src/InputProtocol.cpp",
         "cppAddon/src/event.cpp",

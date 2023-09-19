@@ -1,3 +1,4 @@
+
 #include "../include/ConnectionHandler.h"
 
 using boost::asio::ip::tcp;
@@ -116,6 +117,8 @@ bool ConnectionHandler::getFrameAscii(std::string &frame, char delimiter) {\
 }
 
 bool ConnectionHandler::sendFrameAscii(const std::string &frame, char delimiter) {
+	if(isUsedForIntegration)
+		systemObserver.setFrameOut(frame);
 	cout<<"sending frame: \n -------------- \n" << frame << "\n --------------" <<endl;
 	bool result = sendBytes(frame.c_str(), frame.length());
 	if (!result) return false;

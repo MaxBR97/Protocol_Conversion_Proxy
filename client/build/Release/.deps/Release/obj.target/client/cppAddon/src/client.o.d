@@ -15,7 +15,8 @@ Release/obj.target/client/cppAddon/src/client.o: \
  ../cppAddon/src/../include/../include/StompProtocol.h \
  ../cppAddon/src/../include/../include/../include/event.h \
  ../cppAddon/src/../include/../include/../include/StompFrame.h \
- ../cppAddon/src/../include/../include/../include/ConnectionHandler.h
+ ../cppAddon/src/../include/../include/../include/ConnectionHandler.h \
+ ../cppAddon/src/../include/../include/../include/../src/IOObserver.cpp
 ../cppAddon/src/client.cc:
 /home/spl211/.cache/node-gyp/16.14.0/include/node/node.h:
 /home/spl211/.cache/node-gyp/16.14.0/include/node/v8.h:
@@ -32,3 +33,4 @@ Release/obj.target/client/cppAddon/src/client.o: \
 ../cppAddon/src/../include/../include/../include/event.h:
 ../cppAddon/src/../include/../include/../include/StompFrame.h:
 ../cppAddon/src/../include/../include/../include/ConnectionHandler.h:
+../cppAddon/src/../include/../include/../include/../src/IOObserver.cpp:

@@ -41,9 +41,25 @@ void SetInput(const FunctionCallbackInfo<Value>& args) {
   systemObserver.setKeyboardInput(input);
 }
 
+void GetFrameOut(const FunctionCallbackInfo<Value>& args) {
+  Isolate* isolate = args.GetIsolate();
+  
+  std::string result ( systemObserver.getFrameOut());
+  args.GetReturnValue().Set(String::NewFromUtf8(isolate, result.c_str()).ToLocalChecked());
+}
+
+void GetFrameIn(const FunctionCallbackInfo<Value>& args) {
+  Isolate* isolate = args.GetIsolate();
+  
+  std::string result (systemObserver.getFrameIn());
+  args.GetReturnValue().Set(String::NewFromUtf8(isolate, result.c_str()).ToLocalChecked());
+}
+
 void Initialize(Local<Object> exports) {
   NODE_SET_METHOD(exports, "getOutput", GetOutput);
   NODE_SET_METHOD(exports, "setInput", SetInput);
+  NODE_SET_METHOD(exports, "getFrameOut", GetFrameOut);
+  NODE_SET_METHOD(exports, "getFrameIn", GetFrameIn);
   NODE_SET_METHOD(exports, "initialize", InitializeClient);
 }
 

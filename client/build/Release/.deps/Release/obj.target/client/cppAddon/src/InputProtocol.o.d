@@ -5,10 +5,12 @@ Release/obj.target/client/cppAddon/src/InputProtocol.o: \
  ../cppAddon/src/../include/../include/StompProtocol.h \
  ../cppAddon/src/../include/../include/../include/event.h \
  ../cppAddon/src/../include/../include/../include/StompFrame.h \
- ../cppAddon/src/../include/../include/../include/ConnectionHandler.h
+ ../cppAddon/src/../include/../include/../include/ConnectionHandler.h \
+ ../cppAddon/src/../include/../include/../include/../src/IOObserver.cpp
 ../cppAddon/src/InputProtocol.cpp:
 ../cppAddon/src/../include/InputProtocol.h:
 ../cppAddon/src/../include/../include/StompProtocol.h:
 ../cppAddon/src/../include/../include/../include/event.h:
 ../cppAddon/src/../include/../include/../include/StompFrame.h:
 ../cppAddon/src/../include/../include/../include/ConnectionHandler.h:
+../cppAddon/src/../include/../include/../include/../src/IOObserver.cpp:

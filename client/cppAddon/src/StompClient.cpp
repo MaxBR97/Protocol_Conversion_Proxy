@@ -4,76 +4,6 @@
 
 using namespace std;
 
-class IOObserver {
-	public:
-	//blocking function
-	std::string getKeyboardInput() {
-		std::string ans;
-		std::unique_lock<std::mutex> guard(keyboardLock);
-		if(in.length() == 0) {
-			guard.unlock();
-			while(true) {
-				std::this_thread::__sleep_for(std::chrono::seconds(0),std::chrono::nanoseconds(3000));
-				if(in.length() != 0)
-					break;
-			}
-			guard.lock();
-		}
-		ans = in;
-		in = "";
-		return in;
-	}
-	void setKeyboardInput(std::string str){
-		std::unique_lock<std::mutex> guard(keyboardLock);
-		in = str;
-	}
-	std::string getKeyboardOutput(){
-		std::string ans;
-		std::unique_lock<std::mutex> guard(keyboardLock);
-		if(out.length() == 0) {
-			guard.unlock();
-			while(true) {
-				std::this_thread::__sleep_for(std::chrono::seconds(0),std::chrono::nanoseconds(3000));
-				if(out.length() != 0)
-					break;
-			}
-			guard.lock();
-		}
-		ans = out;
-		out = "";
-		return ans;
-
-	}
-	void setKeyboardOutput(std::string str){
-		std::unique_lock<std::mutex> guard(keyboardLock);
-		out = str;
-	}
-	std::string getFrameIn(){
-
-	}
-	void setFrameIn(std::string str){
-
-	}
-	std::string getFrameOut(){
-
-	}
-	void setFrameOut(std::string str) {
-
-	}
-
-	private:
-	std::string in;
-	std::string out;
-	std::string frameIn;
-	std::string frameOut;
-	std::mutex keyboardLock;
-	std::mutex connectionLock;
-};
-
-static IOObserver systemObserver;
-static bool isUsedForIntegration;
-
-
 void keyboardInput(std::string& keyboardOut, bool& flag, std::mutex& lock, StompProtocol& stomp, InputProtocol& inputProtocol){ // function for input thread
 	while (flag) {
 		std::string insertNote("insert input");
@@ -148,7 +78,6 @@ int integrationMain(int argc, char *argv[]) {
 	std::thread keyboardThread(keyboardInput, std::ref(userInput), std::ref(allowKeyboardInput), std::ref(lock), std::ref(stomp), std::ref(inputProtocol)); 
 	std::string inputBufferAsString;
 	std::string reply = "";
-	
 
 
     while ( !stomp.isLoggedIn() || !stomp.isShouldTerminate()) {
@@ -157,6 +86,7 @@ int integrationMain(int argc, char *argv[]) {
 	    reply.clear();
 		connectionHandler.getFrameAscii(reply, '\0');
 		stomp.processReply(reply);
+		systemObserver.setFrameIn(reply);
 		std::cout << "reply: \n ------------- \n" << reply <<"\n---------------\n" <<std::endl;
 		}
 		else

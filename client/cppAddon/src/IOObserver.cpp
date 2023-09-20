@@ -3,6 +3,9 @@
 #include <thread>
 #include <mutex>
 #include <queue>
+#include <iostream>
+
+using namespace std;
 
 
 class IOObserver {
@@ -14,7 +17,7 @@ class IOObserver {
 		if(in.length() == 0) {
 			guard.unlock();
 			while(true) {
-				std::this_thread::__sleep_for(std::chrono::seconds(0),std::chrono::nanoseconds(sleepTime));
+				std::this_thread::__sleep_for(std::chrono::seconds(sleepTimeSec),std::chrono::nanoseconds(sleepTimeNano));
 				if(in.length() != 0)
 					break;
 			}
@@ -34,7 +37,8 @@ class IOObserver {
 		if(out.length() == 0) {
 			guard.unlock();
 			while(true) {
-				std::this_thread::__sleep_for(std::chrono::seconds(0),std::chrono::nanoseconds(sleepTime));
+				//cout<<"proxyOutput beat"<<endl;
+				std::this_thread::__sleep_for(std::chrono::seconds(sleepTimeSec),std::chrono::nanoseconds(sleepTimeNano));
 				if(out.length() != 0)
 					break;
 			}
@@ -54,7 +58,7 @@ class IOObserver {
 		if(frameIn.empty()) {
 			guard.unlock();
 			while(frameIn.empty()) {
-				std::this_thread::__sleep_for(std::chrono::seconds(0),std::chrono::nanoseconds(sleepTime));
+				std::this_thread::__sleep_for(std::chrono::seconds(sleepTimeSec),std::chrono::nanoseconds(sleepTimeNano));
 			}
 			guard.lock();
 		}
@@ -71,7 +75,8 @@ class IOObserver {
 		if(frameOut.empty()) {
 			guard.unlock();
 			while(frameOut.empty()) {
-				std::this_thread::__sleep_for(std::chrono::seconds(0),std::chrono::nanoseconds(sleepTime));
+				//cout<<"getFrameOut beat"<<endl;
+				std::this_thread::__sleep_for(std::chrono::seconds(sleepTimeSec),std::chrono::nanoseconds(sleepTimeNano));
 			}
 			guard.lock();
 		}
@@ -85,6 +90,11 @@ class IOObserver {
 		frameOut.push(str);
 	}
 
+	void setSleepDelays(int secs, int nano) {
+		sleepTimeNano = nano;
+		sleepTimeSec = secs;
+	}
+
 	private:
 	std::string in;
 	std::string out;
@@ -94,7 +104,8 @@ class IOObserver {
 	std::mutex keyboardOutLock;
 	std::mutex frameInLock;
 	std::mutex frameOutLock;
-	const int sleepTime = 9000;
+	int sleepTimeNano = 9000;
+	int sleepTimeSec = 1;
 };
 
 static IOObserver systemObserver;

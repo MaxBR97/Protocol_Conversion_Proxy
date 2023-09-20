@@ -7,8 +7,7 @@ import bgu.spl.net.srv.Server;
 
 public class StompServer {
 
-    public static void main(String[] args) {
-    
+    public static void main(String[] args){
 
         if(args.length == 2){
             int port = Integer.parseInt(args[0]);

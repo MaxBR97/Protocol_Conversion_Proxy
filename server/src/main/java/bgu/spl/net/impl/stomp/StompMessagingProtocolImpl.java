@@ -137,6 +137,7 @@ public class StompMessagingProtocolImpl implements StompMessagingProtocol {
 
     @Override
     public boolean shouldTerminate() {
-        return shouldTerminate;
+        //return shouldTerminate;
+        return false;
     }
 }

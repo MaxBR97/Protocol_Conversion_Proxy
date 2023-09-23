@@ -1,8 +1,8 @@
 #pragma once
-#include "../src/IOObserver.cpp"
 #include <string>
 #include <iostream>
 #include <boost/asio.hpp>
+#include "Globals.h"
 
 using boost::asio::ip::tcp;
 

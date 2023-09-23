@@ -43,6 +43,7 @@ public:
     bool isLoggedIn();
     void setPort(short p);
     std::vector<Event> getGameUpdatesFrom(std::string user,std::string destination);
+    std::vector<Event> getGameUpdatesFrom(std::string destination);
     ~StompProtocol();
 };
 

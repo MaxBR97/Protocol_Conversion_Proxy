@@ -193,6 +193,20 @@ int StompProtocol::subscriptionIdCounter = 0;
         pa.second = destination;
         return this->gameUpdates[pa];
     }
+     std::vector<Event> StompProtocol::getGameUpdatesFrom(std::string destination)
+    {
+       std::vector<Event> combinedEvents;
+       for(const auto& entry: gameUpdates) {
+        const auto& key = entry.first;
+        const auto& events = entry.second;
+
+        if(key.second.compare(destination) == 0) {
+            combinedEvents.insert(combinedEvents.end(), events.begin(),events.end());
+        }
+       }
+        return combinedEvents;
+    }
+
     void StompProtocol::setPort(short p)
     {
         port = p;

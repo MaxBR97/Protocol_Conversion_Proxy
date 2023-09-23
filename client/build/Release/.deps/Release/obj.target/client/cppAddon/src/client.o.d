@@ -17,13 +17,14 @@ Release/obj.target/client/cppAddon/src/client.o: \
  /home/spl211/.cache/node-gyp/16.14.0/include/node/uv/unix.h \
  /home/spl211/.cache/node-gyp/16.14.0/include/node/uv/threadpool.h \
  /home/spl211/.cache/node-gyp/16.14.0/include/node/uv/linux.h \
- ../cppAddon/src/StompClient.cpp \
- ../cppAddon/src/../include/InputProtocol.h \
- ../cppAddon/src/../include/../include/StompProtocol.h \
- ../cppAddon/src/../include/../include/../include/event.h \
- ../cppAddon/src/../include/../include/../include/StompFrame.h \
- ../cppAddon/src/../include/../include/../include/ConnectionHandler.h \
- ../cppAddon/src/../include/../include/../include/../src/IOObserver.cpp
+ ../cppAddon/src/./StompClient.cpp \
+ ../cppAddon/src/./../include/InputProtocol.h \
+ ../cppAddon/src/./../include/../include/StompProtocol.h \
+ ../cppAddon/src/./../include/../include/../include/event.h \
+ ../cppAddon/src/./../include/../include/../include/StompFrame.h \
+ ../cppAddon/src/./../include/../include/../include/ConnectionHandler.h \
+ ../cppAddon/src/./../include/../include/../include/Globals.h \
+ ../cppAddon/src/./../include/../include/../include/../src/IOObserver.cpp
 ../cppAddon/src/client.cc:
 /home/spl211/.cache/node-gyp/16.14.0/include/node/v8.h:
 /home/spl211/.cache/node-gyp/16.14.0/include/node/cppgc/common.h:
@@ -41,10 +42,11 @@ Release/obj.target/client/cppAddon/src/client.o: \
 /home/spl211/.cache/node-gyp/16.14.0/include/node/uv/unix.h:
 /home/spl211/.cache/node-gyp/16.14.0/include/node/uv/threadpool.h:
 /home/spl211/.cache/node-gyp/16.14.0/include/node/uv/linux.h:
-../cppAddon/src/StompClient.cpp:
-../cppAddon/src/../include/InputProtocol.h:
-../cppAddon/src/../include/../include/StompProtocol.h:
-../cppAddon/src/../include/../include/../include/event.h:
-../cppAddon/src/../include/../include/../include/StompFrame.h:
-../cppAddon/src/../include/../include/../include/ConnectionHandler.h:
-../cppAddon/src/../include/../include/../include/../src/IOObserver.cpp:
+../cppAddon/src/./StompClient.cpp:
+../cppAddon/src/./../include/InputProtocol.h:
+../cppAddon/src/./../include/../include/StompProtocol.h:
+../cppAddon/src/./../include/../include/../include/event.h:
+../cppAddon/src/./../include/../include/../include/StompFrame.h:
+../cppAddon/src/./../include/../include/../include/ConnectionHandler.h:
+../cppAddon/src/./../include/../include/../include/Globals.h:
+../cppAddon/src/./../include/../include/../include/../src/IOObserver.cpp:

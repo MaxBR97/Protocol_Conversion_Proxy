@@ -13,7 +13,9 @@
 // #include "../include/StompProtocol.h"
 // #include "../include/InputProtocol.h"
 // //#include "ConnectionHandler.cpp"
-#include "StompClient.cpp"
+
+#include "./StompClient.cpp"
+
 
 
 namespace demo {

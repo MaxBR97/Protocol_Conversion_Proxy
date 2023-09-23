@@ -2,7 +2,9 @@ cmd_Release/obj.target/client/cppAddon/src/ConnectionHandler.o := g++ -o Release
 Release/obj.target/client/cppAddon/src/ConnectionHandler.o: \
  ../cppAddon/src/ConnectionHandler.cpp \
  ../cppAddon/src/../include/ConnectionHandler.h \
+ ../cppAddon/src/../include/Globals.h \
  ../cppAddon/src/../include/../src/IOObserver.cpp
 ../cppAddon/src/ConnectionHandler.cpp:
 ../cppAddon/src/../include/ConnectionHandler.h:
+../cppAddon/src/../include/Globals.h:
 ../cppAddon/src/../include/../src/IOObserver.cpp:

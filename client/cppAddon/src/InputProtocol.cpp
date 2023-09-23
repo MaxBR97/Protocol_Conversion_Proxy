@@ -5,7 +5,7 @@
 
 InputProtocol::InputProtocol () : command() , umap(), myUsername(){}
 
-bool InputProtocol::process(std::string message)
+bool InputProtocol::process(std::string message, std::string& output)
 {
     std::istringstream ss(message);
     string word;
@@ -15,6 +15,8 @@ bool InputProtocol::process(std::string message)
     if( /*word == NULL ||*/ !InputProtocol::setCommand(word))
      {
         std::cout << " invalid command " << message <<" " << std::endl;
+        output = " invalid command ";
+        
         return false;
      }
     
@@ -27,6 +29,7 @@ bool InputProtocol::process(std::string message)
         if( middle ==-1)
         {
            std::cout<< " invalid host:port format"<< std::endl;
+           output = "invalid host:port format";
            return false; 
         }
         string host = word.substr(start, middle);
@@ -43,6 +46,7 @@ bool InputProtocol::process(std::string message)
         else 
         {
             std::cout<< " no username"<< std::endl;
+            output = "no username";
             return false;
         }
 
@@ -54,6 +58,7 @@ bool InputProtocol::process(std::string message)
         else 
         {
             std::cout<< " no password"<< std::endl;
+            output = "no password";
             return false;
         }
         return true;
@@ -89,6 +94,7 @@ bool InputProtocol::process(std::string message)
        else
        {
           std::cout<< " no username entered "<< std::endl;
+           output = " no username entered ";
           return false;
        }
 
@@ -100,6 +106,7 @@ bool InputProtocol::process(std::string message)
        else
        {
           std::cout<< " no file entered "<< std::endl;
+           output = " no file entered ";
           return false;
        }
        return true;
@@ -109,6 +116,7 @@ bool InputProtocol::process(std::string message)
     else
     {
         std::cout << "command without headers" << std::endl;
+         output = "command without headers";
         return false;
     }
 }
@@ -138,13 +146,15 @@ void InputProtocol::SetUsername(std::string s)
    myUsername.append(s);
 }
 
-void InputProtocol::execute(StompProtocol& stomp)
+void InputProtocol::execute(StompProtocol& stomp, std::string& output)
 {
      
         if(command  == InputProtocol::Command::LOGIN)
         {
-         if(stomp.isLoggedIn())
+         if(stomp.isLoggedIn()){
             cout<<"The client is already logged in, log out before trying again."<<endl;
+            output = "The client is already logged in, log out before trying again.";
+         }
          else{
            std::string host = umap[InputProtocol::Header::HOST];
            std::string user = umap[InputProtocol::Header::USERNAME];
@@ -186,7 +196,12 @@ void InputProtocol::execute(StompProtocol& stomp)
             std::string file = umap[InputProtocol::Header::FILE];
             std::string destination = umap[InputProtocol::Header::GAME_NAME];
             std::string user = umap[InputProtocol::Header::USERNAME];
-            std::vector<Event> eventsReported = stomp.getGameUpdatesFrom(user, destination);
+            std::vector<Event> eventsReported;
+            if(user.compare("@all") == 0) {
+               eventsReported = stomp.getGameUpdatesFrom(destination);
+            }else {
+               eventsReported = stomp.getGameUpdatesFrom(user, destination);
+            }
             std::vector<int> times;
             std::vector<Event> sortedEvents;
             for(auto & t : eventsReported)

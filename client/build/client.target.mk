@@ -103,6 +103,7 @@ INCS_Release := \
 
 OBJS := \
 	$(obj).target/$(TARGET)/cppAddon/src/client.o \
+	$(obj).target/$(TARGET)/cppAddon/src/IOObserver.o \
 	$(obj).target/$(TARGET)/cppAddon/src/ConnectionHandler.o \
 	$(obj).target/$(TARGET)/cppAddon/src/InputProtocol.o \
 	$(obj).target/$(TARGET)/cppAddon/src/event.o \

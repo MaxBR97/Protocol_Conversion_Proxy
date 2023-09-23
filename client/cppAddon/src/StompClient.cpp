@@ -21,15 +21,20 @@ void keyboardInput(std::string& keyboardOut, bool& flag, std::mutex& lock, Stomp
 			line = systemObserver.getKeyboardInput();
 		}
 		//std::string line(buf);
+		std::string messageFromInputProtocol = "";
 		if(line.length() > 0)
 		{
 		   std::lock_guard<std::mutex> guard(lock);
 		   keyboardOut.clear();
 		   keyboardOut.assign(line);
-		   if(keyboardOut.compare("") !=0 && inputProtocol.process(keyboardOut))
+		   bool successfulMessage = inputProtocol.process(keyboardOut, messageFromInputProtocol);
+			systemObserver.setKeyboardOutput(messageFromInputProtocol);
+		   if(keyboardOut.compare("") !=0 && successfulMessage)
 		   {
-              inputProtocol.execute(stomp);
-			  std::this_thread::__sleep_for(std::chrono::seconds(0),std::chrono::nanoseconds(200)); //wont hurt
+				messageFromInputProtocol = "";
+              	inputProtocol.execute(stomp,messageFromInputProtocol);
+			  	systemObserver.setKeyboardOutput(messageFromInputProtocol);
+			  	std::this_thread::__sleep_for(std::chrono::seconds(0),std::chrono::nanoseconds(200)); //wont hurt
 		   }
 		}
 	}

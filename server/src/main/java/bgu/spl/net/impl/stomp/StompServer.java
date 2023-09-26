@@ -11,7 +11,6 @@ public class StompServer {
 
         if(args.length == 2){
             int port = Integer.parseInt(args[0]);
-
             if(args[1].equals("tpc")){
             Server.threadPerClient(port,
             new ConnectionsImpl<String>(), //protocol factory
@@ -21,6 +20,7 @@ public class StompServer {
             }
 
             else if (args[1].equals("reactor")){
+                System.out.println("starting reactor with 1 thread");
             Server.reactor(1, port, new ConnectionsImpl<String>(), 
             ()-> new StompMessagingProtocolImpl(),
             ()-> new LineMessageEncoderDecoder()).serve();

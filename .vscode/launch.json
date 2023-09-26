@@ -6,6 +6,21 @@
     "configurations": [
         {
             "type": "java",
+            "name": "StompServer",
+            "request": "launch",
+            "mainClass": "bgu.spl.net.impl.stomp.StompServer",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "StompServer",
+            "request": "launch",
+            "mainClass": "bgu.spl.net.impl.stomp.StompServer",
+            "projectName": "server",
+            "args": "5555 reactor"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}",

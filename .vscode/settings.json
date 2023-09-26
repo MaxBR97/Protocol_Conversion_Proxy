@@ -74,5 +74,11 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp"
-    }
+    },
+    "java.project.sourcePaths": [
+        "src\\main\\java",
+        "src\\main\\resources",
+        "src\\test\\java",
+        "src\\test\\resources"
+    ]
 }

@@ -5,18 +5,25 @@ const path = require(`path`)
 //const cors = require(`cors`)
 const bodyParser = require(`body-parser`)
 const app = express()
+const session = require('express-session')
+
 
 const PORT = 0
 let dynamicPort = PORT;
-const SleepSeconds = 0;
-const SleepNanos = 2000000;
+// const SleepSeconds = 0;
+// const SleepNanos = 2000000;
 const server = app.listen(PORT, () =>{ 
     client.initialize(); 
-    client.setSleepTimes(SleepSeconds,SleepNanos);
     console.log(`Serving at port`, server.address().port)
     process.env.PORT=server.address().port
     dynamicPort = server.address().port
 })
+
+app.use(session({
+  secret:'1nvth4u324rekijureyfdu654gvfdsz',
+  resave:false,
+  saveUninitialized: true
+}))
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -67,7 +74,10 @@ app.use((req, res, next) => {
       }
     });
   });
-  
+
+  const generateUniqueID = () => {
+    return Math.random().toString(36).substr(2,9)
+  }
 
 app.use(express.static(path.join(__dirname,'front','dist')));
 

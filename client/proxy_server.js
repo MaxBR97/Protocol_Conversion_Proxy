@@ -7,17 +7,19 @@ const bodyParser = require(`body-parser`)
 const app = express()
 const session = require('express-session')
 
-
 const PORT = 0
 let dynamicPort = PORT;
 // const SleepSeconds = 0;
 // const SleepNanos = 2000000;
-const server = app.listen(PORT, () =>{ 
-    client.initialize(); 
-    console.log(`Serving at port`, server.address().port)
-    process.env.PORT=server.address().port
-    dynamicPort = server.address().port
-})
+const serverInitCallback = () =>{ 
+  client.initialize(); 
+  console.log(`Serving at port`, server.address().port)
+  process.env.PORT=server.address().port
+  dynamicPort = server.address().port
+  
+}
+
+const server = app.listen(PORT, serverInitCallback)
 
 app.use(session({
   secret:'1nvth4u324rekijureyfdu654gvfdsz',
@@ -83,7 +85,7 @@ app.use(express.static(path.join(__dirname,'front','dist')));
 
 app.get(`/proxyOutput`, async (req, res) => {
         const result = await client.getOutput((data) => {
-            res.send(data)
+            res.send(data).status(200)
         })
 })
 
@@ -96,7 +98,7 @@ app.put(`/proxyInput` , async (req, res) => {
         new Promise( async (resolve) => {
           await client.setInput(`report cppAddon/data/${fileName}`)
           resolve()
-        }).then( (ans) => res.end()) .catch((err) => {res.send("no connection to server"); console.log(err)})
+        }).then( (ans) => res.end().status(200)) .catch((err) => {res.send("no connection to server"); console.log(err)})
       }
       //report (teamA)_(teamB)
       else if(arr[0] == "report") {
@@ -110,7 +112,7 @@ app.put(`/proxyInput` , async (req, res) => {
           
             resolve()        
             })
-            .then( (ans) => res.end()) .catch(err => res.send("no connection to server"))
+            .then( (ans) => res.end().status(200)) .catch(err => res.send("no connection to server"))
         })
       }
     }
@@ -126,19 +128,19 @@ app.put(`/proxyInput` , async (req, res) => {
         
         if(err){
           console.log("error: ",err)
-          res.send("error occured while reading summary file")
+          res.send("error occured while reading summary file").status(200)
         }
         else{
           if(fullCommand[2] == "@all"){
             res.send(teams[0] +" vs " +teams[1] +" summary \n" + 
                     "-------------------------- \n" + data +
-                    "-------------------------- \n");
+                    "-------------------------- \n").status(200);
           }
           
           else {
             res.send(teams[0] +" vs " +teams[1] +" summary from "+fullCommand[2] +"\n" + 
             "-------------------------- \n" + data +
-            "-------------------------- \n");
+            "-------------------------- \n").status(200);
           }
         }
       })
@@ -146,22 +148,22 @@ app.put(`/proxyInput` , async (req, res) => {
     else {
       new Promise ( (resolve) => {
           client.setInput(req.body.command)
-        
-      resolve()        
+          resolve()        
       })
-      .then( (ans) => res.end()).catch(err => res.send("no connection to server")) 
+      .then((ans) => res.status(200).end())
+      .catch(err =>  res.status(400).send("no connection to server")) 
     }
 })
 
 app.get(`/sentToStompServer`, async (req, res) => {
         const result = await client.getFrameOut((data) => {
-            res.send(data);
+            res.send(data).status(200)
         })
 })
 
 app.get(`/recievedFromStompServer`, async (req, res) => {
     const result = await client.getFrameIn( (data) => {
-        res.send(data)
+        res.send(data).status(200)
     })
 })
 
@@ -173,3 +175,5 @@ const waitForFileToCreate = async (path, timeoutMili) => {
   })
   return waitForFileToCreate(path, timeoutMili-200)
 }
+
+module.exports = {app,server, serverInitCallback};

@@ -12,11 +12,16 @@ let dynamicPort = PORT;
 // const SleepSeconds = 0;
 // const SleepNanos = 2000000;
 const serverInitCallback = () =>{ 
-  client.initialize(); 
+  client.initialize();
   console.log(`Serving at port`, server.address().port)
   process.env.PORT=server.address().port
   dynamicPort = server.address().port
-  
+}
+
+const testServerInitCallback = () =>{ 
+  client.initialize();
+  process.env.PORT=server.address().port
+  dynamicPort = server.address().port
 }
 
 const server = app.listen(PORT, serverInitCallback)
@@ -98,7 +103,7 @@ app.put(`/proxyInput` , async (req, res) => {
         new Promise( async (resolve) => {
           await client.setInput(`report cppAddon/data/${fileName}`)
           resolve()
-        }).then( (ans) => res.end().status(200)) .catch((err) => {res.send("no connection to server"); console.log(err)})
+        }).then( (ans) => res.status(200).end()) .catch((err) => {res.send("no connection to server"); console.log(err)})
       }
       //report (teamA)_(teamB)
       else if(arr[0] == "report") {
@@ -112,7 +117,7 @@ app.put(`/proxyInput` , async (req, res) => {
           
             resolve()        
             })
-            .then( (ans) => res.end().status(200)) .catch(err => res.send("no connection to server"))
+            .then( (ans) => res.status(200).end()) .catch(err => res.send("no connection to server"))
         })
       }
     }
@@ -128,19 +133,19 @@ app.put(`/proxyInput` , async (req, res) => {
         
         if(err){
           console.log("error: ",err)
-          res.send("error occured while reading summary file").status(200)
+          res.status(200).send("error occured while reading summary file")
         }
         else{
           if(fullCommand[2] == "@all"){
-            res.send(teams[0] +" vs " +teams[1] +" summary \n" + 
+            res.status(200).send(teams[0] +" vs " +teams[1] +" summary \n" + 
                     "-------------------------- \n" + data +
-                    "-------------------------- \n").status(200);
+                    "-------------------------- \n");
           }
           
           else {
-            res.send(teams[0] +" vs " +teams[1] +" summary from "+fullCommand[2] +"\n" + 
+            res.status(200).send(teams[0] +" vs " +teams[1] +" summary from "+fullCommand[2] +"\n" + 
             "-------------------------- \n" + data +
-            "-------------------------- \n").status(200);
+            "-------------------------- \n");
           }
         }
       })
@@ -157,13 +162,13 @@ app.put(`/proxyInput` , async (req, res) => {
 
 app.get(`/sentToStompServer`, async (req, res) => {
         const result = await client.getFrameOut((data) => {
-            res.send(data).status(200)
+            res.status(200).send(data)
         })
 })
 
 app.get(`/recievedFromStompServer`, async (req, res) => {
     const result = await client.getFrameIn( (data) => {
-        res.send(data).status(200)
+        res.status(200).send(data)
     })
 })
 
@@ -176,4 +181,4 @@ const waitForFileToCreate = async (path, timeoutMili) => {
   return waitForFileToCreate(path, timeoutMili-200)
 }
 
-module.exports = {app,server, serverInitCallback};
+module.exports = {app,server, testServerInitCallback};

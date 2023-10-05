@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "testMulti": "./tests/multiTest.sh"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +20,7 @@
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "axios": "^1.5.1",
+    "cross-env": "^7.0.3",
     "jest": "^29.7.0"
   }
 }

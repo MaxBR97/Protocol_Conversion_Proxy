@@ -14,5 +14,15 @@ This project originally started as a university project to make a client and a s
 
 ***Reactor** mode is when the server runs with a fixed number of threads that are responsible to serve all clients, regardless of how many clients there are. It is good for limiting the resources dedicated by the server and to serve a much higher amount of clients simultaneously, although the response time might be slower.
 
-### What Makes This Project Significant?
-* 
+### The high level model of the original project: ###
+![image](https://github.com/user-attachments/assets/05044226-4122-4fe0-99da-976697cac0ec)
+
+
+## What Is Added To The Original Implementation Of The Project?
+* An HTTP client.
+* A client-side proxy server which enables running the app in HTTP protocol using the browser, by adapting the HTTP requests to STOMP!
+* A user interface, which enables the client to inspect the traffic being routed through the proxy.
+* 2 System Tests.
+
+### The final model: ###
+![image](https://github.com/user-attachments/assets/b21dd729-75ea-4af2-a829-6e009246d832)
